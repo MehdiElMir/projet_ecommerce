@@ -1,7 +1,7 @@
 const catlogServices = require("../services/calatlog.services");
-const loginMiddleware = require("../middlewares/login.middleware");
 async function getAllProducts(req, res) {
   try {
+    console.log(req.headers.authorization);
     let products = [];
     if (req.query.keyWord) {
       products = await catlogServices.findProductsByQuery(req.query.keyWord);

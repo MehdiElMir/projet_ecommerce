@@ -1,5 +1,5 @@
 import http from "./http-common";
-const token = localStorage.getItem("jwtToken");
+const token = await localStorage.getItem("jwtToken");
 export async function getProducts(query) {
   return await http.get(`/products?keyWord=${query}`, {
     headers: { Authorization: token },

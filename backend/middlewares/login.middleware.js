@@ -11,9 +11,6 @@ async function jwtVerify(req, res, next) {
       req.user = { email: data.email, verified: true };
       next();
     }
-    console.log(data);
-    next();
   });
-  next();
 }
 module.exports = { jwtVerify };

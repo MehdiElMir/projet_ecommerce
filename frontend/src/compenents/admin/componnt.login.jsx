@@ -7,22 +7,20 @@ export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+
   async function handleForm(e) {
     e.preventDefault();
     const rep = await userLogin({ email: email, password: password });
     const token = rep.data;
-    localStorage.setItem("jwtToken", token);
+    await localStorage.setItem("jwtToken", token);
     console.log(token);
-    navigate("admin/products");
+    navigate("/admin/products");
   }
 
   return (
     <form className="container" onSubmit={(e) => handleForm(e)}>
       <label className="form-label" htmlFor="email">
-        Email :{" "}
+        Email :
       </label>
       <input
         className="form-control"
@@ -32,7 +30,7 @@ export function Login() {
         onChange={(e) => setEmail(e.target.value)}
       />
       <label className="form-label" htmlFor="password">
-        password :{" "}
+        password :
       </label>
       <input
         className="form-control"

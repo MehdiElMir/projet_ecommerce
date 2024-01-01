@@ -5,6 +5,7 @@ async function signup(req, resp) {
     const user = await loginServices.saveUser(req.body);
     resp.status(201).json(user);
   } catch (error) {
+    console.log(error);
     resp.status(500).json({ error: error });
   }
 }
